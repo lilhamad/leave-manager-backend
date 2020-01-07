@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date, timedelta
-from employee.models import Employee
+from Employee.models import Employee
 
 class Leave(models.Model):
     PENDING, APPROVED, RUNNING, RETURNED, CANCELLED, REJECTED = range(6)
