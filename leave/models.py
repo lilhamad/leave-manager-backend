@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date, timedelta
-from Employee.models import Employee
+from employee.models import Employee
 
 class Leave(models.Model):
     PENDING, APPROVED, RUNNING, RETURNED, CANCELLED, REJECTED = range(6)
@@ -16,7 +16,7 @@ class Leave(models.Model):
     
     start_date = models.DateField()
     end_date = models.DateField()
-    employee = models.ForeignKey(Employee, related_name='employee_leaves', on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, null=True, related_name='leaves', on_delete=models.CASCADE)
     status = models.PositiveIntegerField(choices=STATUS, default=PENDING)
     application_date = models.DateField(default=date.today, editable=False)
 
