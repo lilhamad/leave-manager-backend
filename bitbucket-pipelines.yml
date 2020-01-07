@@ -1,0 +1,22 @@
+# This is a sample build configuration for Python.
+# Check our guides at https://confluence.atlassian.com/x/x4UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: python:3.7.3
+clone:
+  depth: full
+pipelines:
+  default:
+    - step:
+        caches:
+          - pip
+        script: # Modify the commands below to build your repository.
+          - pip install -r requirements.txt
+          - pipe: atlassian/heroku-deploy:1.1.1
+            variables:
+              HEROKU_API_KEY: '6e8ed8b4-2324-4d6d-9982-a5754f775f0b'
+              HEROKU_APP_NAME: 'leave-manager-backend'
+              ZIP_FILE: 'application.zip'
+              # WAIT: '<boolean>' # Optional.
+              # DEBUG: '<boolean>' # Optional
