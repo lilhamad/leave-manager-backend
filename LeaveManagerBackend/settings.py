@@ -27,7 +27,7 @@ SECRET_KEY = 'hv^clo5zfm0iy7#4=05@xyayk7e)v4t%&$(ekh#akxgvzy+q0_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["212.71.237.113", "localhost"]
+ALLOWED_HOSTS = ["212.71.237.113", "localhost", "leave-manager-back.herokuapp.com"]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
